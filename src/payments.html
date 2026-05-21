@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice Builder</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-white">
+
+  <!-- Navbar -->
+  <header class="w-full shadow-sm">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <img src="./img/img (1).svg" alt="">
+      </div>
+
+      <!-- Menu -->
+      <nav class="flex space-x-8 text-gray-700 text-sm font-medium relative">
+        
+        <!-- Invoice Generator -->
+        <div class="relative">
+          <button onclick="toggleDropdown('genDropdown')" class="hover:text-blue-600 flex items-center">
+            Invoice Generator ▾
+          </button>
+          <div id="genDropdown" class="hidden absolute left-0 top-8 bg-white shadow-md rounded-md w-48 z-20">
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Create Free Invoice</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Download Invoice</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Email Invoice</a>
+          </div>
+        </div>
+
+        <!-- Invoice Templates -->
+        <div class="relative">
+          <button onclick="toggleDropdown('tempDropdown')" class="hover:text-blue-600 flex items-center">
+            Invoice Templates ▾
+          </button>
+          <div id="tempDropdown" class="hidden absolute left-0 top-8 bg-white shadow-md rounded-md w-52 z-20">
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Simple Invoice</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Business Invoice</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Freelancer Invoice</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Tax Invoice</a>
+          </div>
+        </div>
+
+        <!-- Invoicing Guide -->
+        <div class="relative">
+          <button onclick="toggleDropdown('guideDropdown')" class="hover:text-blue-600 flex items-center">
+            Invoicing Guide ▾
+          </button>
+          <div id="guideDropdown" class="hidden absolute left-0 top-8 bg-white shadow-md rounded-md w-60 z-20">
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">How to Write an Invoice</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">What is a Proforma Invoice?</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Tips for Getting Paid Faster</a>
+          </div>
+        </div>
+
+        <!-- International Payments -->
+        <a href="#" class="hover:text-blue-600">International Payments</a>
+      </nav>
+
+      <!-- Button -->
+      <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700">
+        Create Invoice
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative  py-20 text-center" style="background: url(./img/img\ \(1\).jpg);">
+    <div class=" rounded-xl  px-8 py-12 relative z-10">
+      <!-- Logo Section -->
+      <div class="flex items-center justify-center space-x-3 mb-6">
+       <img src="./img/img (1).png" width="220px" alt="">
+      </div>
+
+      <!-- Text -->
+      <h2 class="text-gray-700 text-lg leading-relaxed mb-6">
+        Free Invoice Builder & Payoneer have <br> Partnered <br>
+        to Offer You a Fast, Easy & Secure Way <br>
+        to Receive International Payments
+      </h2>
+
+      <!-- Button -->
+      <a href="#" class="bg-blue-600 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-700 mt-[30px]">
+        Sign Up Now
+      </a>
+    </div>
+  </section>
+
+  
+  <p class="text-center py-6 text-sm text-gray-600 max-w-3xl mx-auto">
+    Payoneer provides you with a flexible and easy way to receive international payments <br>
+    and access your funds no matter where in the world you are.
+  </p>
+
+  <!-- Flexible Ways to Get Paid -->
+  <section class="py-16 max-w-6xl mx-auto px-6">
+    <h2 class="text-center text-gray-500 text-lg font-semibold mb-12">FLEXIBLE WAYS TO GET PAID</h2>
+    <div class="grid md:grid-cols-2 gap-12 text-center px-[180px]">
+      <div>
+        <img src="./img/img (2).png" alt="billing" class="mx-auto w-[190px] h-[150px] mb-4">
+        <p>
+          Bill your clients via Payoneer and offer them to pay you safely and securely using their
+          credit/debit card, eCheck and local bank transfer.
+        </p>
+      </div>
+      <div>
+        <img src="./img/img (3).png" alt="currencies" class="mx-auto w-[200px] h-[150px] mb-4">
+        <p>
+          Provide clients with local USD, EUR, GBP, JPY and CNY collection accounts and get paid as
+          easily as having a local bank account.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- With Payoneer You Can -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-center text-gray-700 text-xl font-semibold mb-12">WITH PAYONEER YOU CAN</h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-2 px[400px] gap-10">
+        
+        <div class="flex items-start space-x-3">
+          <img src="./img/ico-fee.png" alt="fees" class="w-10">
+          <p>Reduce your payment fees<br>
+          Traditional payment methods can be costly. With Payoneer you can save up to 71% in fees, so you can spend your hard-earned money on growing your business.</p>
+        </div>
+
+        <div class="flex items-start space-x-3">
+          <img src="./img/ico-currency.png" alt="currencies" class="w-10">
+          <p>Accept payment in more currencies<br>
+          Payoneer’s receiving accounts makes it simple to accept payments in USD, EUR, GBP and JPY – as if you had your own local bank account.</p>
+        </div>
+
+        <div class="flex items-start space-x-3">
+          <img src="./img/ico-globe.png" alt="scale" class="w-10">
+          <p>Scale your business<br>
+          Expand your global reach by receiving funds from more than 200 countries in over 150 currencies.</p>
+        </div>
+
+        <div class="flex items-start space-x-3">
+          <img src="./img/ico-free.png" alt="free payment" class="w-10">
+          <p>Make a Payment for FREE<br>
+          Pay your contractors, suppliers or service providers – anywhere in the world – for FREE.</p>
+        </div>
+
+        <div class="flex items-start space-x-3">
+          <img src="./img/ico-place.png" alt="funds" class="w-10">
+          <p>Choose how to access your funds<br>
+          Withdraw your funds to your personal bank account in local currency, at ATMs worldwide or make purchases online and in stores.</p>
+        </div>
+
+        <div class="flex items-start space-x-3">
+          <img src="./img/ico-help.png" alt="support" class="w-10">
+          <p>Get the help you need<br>
+          Enjoy multilingual customer care 24 hours a day, 7 days a week.</p>
+        </div>
+
+      </div>
+
+      <!-- Sign Up Now Button -->
+      <div class="text-center mt-12">
+        <a href="#" class="bg-blue-600 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-700">
+          Sign Up Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial Section -->
+  <section class="py-16 max-w-3xl mx-auto text-center px-6">
+    <h3 class="text-gray-500 uppercase text-sm tracking-wide mb-6">HEAR WHAT OUR CUSTOMERS HAVE TO SAY</h3>
+    <p class="italic text-lg text-gray-700 mb-6">
+      “After I used Payoneer for the first time, I realized how simple and easy it is to get paid. 
+      Payoneer saved me a lot of time, energy and fees I would have paid for other payment methods.”
+    </p>
+    <div class="flex items-center justify-center space-x-3">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full" alt="user">
+    </div>
+     <div class="mt[30px] text-center">
+        <p class="font-semibold">ASF MALIK</p>
+        <p class="text-gray-500 text-sm">CEO Design Guru Communications, Islamabad Pakistan</p>
+      </div>
+  </section>
+
+
+   <!-- Leading Brands Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6 text-center justify-center items-center">
+      <h3 class="text-gray-500 uppercase text-sm tracking-wide mb-8">LEADING BRANDS TRUST PAYONEER</h3>
+<img src="./img/brands (1).jpg" class="ml-[40px]" alt="">
+    </div>
+  </section>
+
+  <!-- Licensed and Regulated Section -->
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h3 class="text-gray-500 uppercase text-sm tracking-wide mb-12">LICENSED AND REGULATED</h3>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-left">
+        <div>
+          <img src="./img/ico-us.png" class="w-12 mx-auto mb-4" alt="US">
+          <p class="text-sm">Regulated as an MSB in the US</p>
+        </div>
+        <div>
+          <img src="./img/ico-eu.png" class="w-12 mx-auto mb-4" alt="EU">
+          <p class="text-sm">E-money license in the EU</p>
+        </div>
+        <div>
+          <img src="./img/ico-hong-kong.png" class="w-12 mx-auto mb-4" alt="Hong Kong">
+          <p class="text-sm">Licensed MSO in Hong Kong</p>
+        </div>
+        <div>
+          <img src="./img/ico-japan.png" class="w-12 mx-auto mb-4" alt="Japan">
+          <p class="text-sm">Registered as MSB in Japan</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <!-- Footer -->
+      <footer class="text-center text-sm text-gray-600 mt-6 py-[150px]">
+        <p>© Copyright 2025, All Rights Reserved &nbsp;  &nbsp;
+          <a href="#">Terms & Conditions</a> &nbsp;  &nbsp;
+          <a href="#">Privacy Policy</a>
+        </p>
+      </footer>
+
+
+  <!-- Script for Dropdown -->
+  <script>
+    function toggleDropdown(id) {
+      const dropdown = document.getElementById(id);
+      dropdown.classList.toggle("hidden");
+    }
+
+    // close other dropdowns when one is opened
+    document.addEventListener("click", function(e) {
+      const buttons = ["genDropdown", "tempDropdown", "guideDropdown"];
+      buttons.forEach(id => {
+        const dropdown = document.getElementById(id);
+        const button = dropdown.previousElementSibling;
+        if (!dropdown.contains(e.target) && !button.contains(e.target)) {
+          dropdown.classList.add("hidden");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

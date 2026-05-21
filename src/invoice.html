@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice Builder</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-['Roboto']">
+
+  <div class="flex h-screen">
+    <!-- side bar -->
+
+   <aside class="w-[300px] bg-[#2d3e50] text-white flex flex-col justify-between h-screen">
+    <!-- Top -->
+    <div>
+      <ul class="space-y-1 pt-8">
+        <li>
+          <a href="index.html"
+            class="flex items-center gap-3 px-6 py-1 text-blue-500 font-medium border-l-4 border-blue-500">
+            <i class="fas fa-file-invoice"></i> Invoices
+          </a>
+        </li>
+
+        <li>
+          <a href="clients.html"
+            class="flex items-center gap-3 px-6 py-2 text-white hover:text-blue-500 hover:border-blue-500 border-l-4 border-transparent transition">
+            <i class="fas fa-users"></i> Clients
+          </a>
+        </li>
+
+        <li>
+          <a href="settings.html"
+            class="flex items-center gap-3 px-6 py-3 text-white hover:text-blue-500 hover:border-blue-500 border-l-4 border-transparent transition">
+            <i class="fas fa-cog"></i> My settings
+          </a>
+        </li>
+
+        <div class="h-px bg-gray-500 mx-6 my-2"></div>
+
+        <li>
+          <a href="payments.html"
+            class="flex items-center gap-3 px-6 py-3 text-white hover:text-blue-500 hover:border-blue-500 border-l-4 border-transparent transition">
+            <i class="fas fa-credit-card"></i> International payments
+          </a>
+        </li>
+
+        <li>
+          <a href="contact.html"
+            class="flex items-center gap-3 px-6 py-1 text-white hover:text-blue-500 hover:border-blue-500 border-l-4 border-transparent transition">
+            <i class="fas fa-envelope"></i> Contact us
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Profile Section -->
+    <div class="relative px-6 py-4 border-t border-gray-600 group">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-blue-500 text-white flex items-center justify-center rounded-full font-bold">
+          U
+        </div>
+        <span class="text-sm font-medium">zainabtechnologies</span>
+
+        <!-- 🔹 Logout Arrow Icon -->
+        <button id="logoutArrow" class="ml-auto text-gray-400 hover:text-blue-500 relative group">
+          <i class="fas fa-right-from-bracket text-lg"></i>
+
+          <!-- 🔹 Hover Logout Tooltip -->
+          <div
+            id="logoutTooltip"
+            class="absolute bottom-full mb-2 right-1/2 translate-x-1/2 bg-black text-white text-xs rounded-md px-3 py-1 opacity-0 group-hover:opacity-100 transition duration-200">
+            Logout
+            <!-- 🔹 Small pointer (nok) -->
+            <div class="absolute left-1/2 -bottom-1 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-black -translate-x-1/2"></div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+
+    <!-- Content -->
+    <main class="flex-1 p-6 bg-gray-100 overflow-y-auto">
+      
+
+  <!-- Recent invoices -->
+  <!-- Top Section -->
+  <div class="flex items-center justify-between mb-6">
+    <div class="flex items-center gap-4">
+      <h2 class="text-lg font-semibold text-gray-700">Recent Invoices</h2>
+      <a href="./add new invoice.html" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+        + New Invoice
+      </a>
+     
+    </div>
+  </div>
+
+  <!-- Nothing text -->
+  <p class="text-center text-gray-600 mt-6 py-[50px]">
+    Nothing to see here yet. Click 'New' above to get started!
+  </p>
+
+  <!-- Divider -->
+  <div class="border-t border-gray-300 my-8"></div>
+
+  <!-- All invoices -->
+  <h2 class="text-2xl font-semibold mb-4">All invoices</h2>
+
+  <div class="bg-white rounded-md shadow-sm">
+    <div class="grid grid-cols-6 text-gray-700 text-sm font-medium">
+      <button class="py-3 px-4 flex items-center justify-center gap-1 header-option hover:text-blue-500">
+        Invoice No# 
+        <span class="flex flex-col ml-1">
+          <span class="text-[10px] leading-none">▲</span>
+          <span class="text-[10px] leading-none">▼</span>
+        </span>
+      </button>
+      <button class="py-3 px-4 flex items-center justify-center gap-1 header-option hover:text-blue-500">
+        Invoice Type
+        <span class="flex flex-col ml-1">
+          <span class="text-[10px] leading-none">▲</span>
+          <span class="text-[10px] leading-none">▼</span>
+        </span>
+      </button>
+      <button class="py-3 px-4 flex items-center justify-center gap-1 header-option hover:text-blue-500">
+        Client
+        <span class="flex flex-col ml-1">
+          <span class="text-[10px] leading-none">▲</span>
+          <span class="text-[10px] leading-none">▼</span>
+        </span>
+      </button>
+      <button class="py-3 px-4 flex items-center justify-center gap-1 header-option hover:text-blue-500">
+        Issue Date
+        <span class="flex flex-col ml-1">
+          <span class="text-[10px] leading-none">▲</span>
+          <span class="text-[10px] leading-none">▼</span>
+        </span>
+      </button>
+      <button class="py-3 px-4 flex items-center justify-center gap-1 header-option hover:text-blue-500">
+        Due Date
+        <span class="flex flex-col ml-1">
+          <span class="text-[10px] leading-none">▲</span>
+          <span class="text-[10px] leading-none">▼</span>
+        </span>
+      </button>
+      <button class="py-3 px-4 flex items-center justify-center gap-1 header-option hover:text-blue-500">
+        Total Value
+        <span class="flex flex-col ml-1">
+          <span class="text-[10px] leading-none">▲</span>
+          <span class="text-[10px] leading-none">▼</span>
+        </span>
+      </button>
+    </div>
+  </div>
+      <!-- Footer -->
+      <footer class="text-center text-sm text-gray-600 mt-6 py-[150px]">
+        <p>© Copyright 2025, All Rights Reserved &nbsp;  &nbsp;
+          <a href="#">Terms & Conditions</a> &nbsp;  &nbsp;
+          <a href="#">Privacy Policy</a>
+        </p>
+      </footer>
+
+    </main>
+  </div>
+  
+<script>
+  const options = document.querySelectorAll(".header-option");
+
+  options.forEach(btn => {
+    btn.addEventListener("click", () => {
+      options.forEach(o => o.classList.remove("text-blue-600"));
+      btn.classList.add("text-blue-600");
+    });
+  });
+
+
+
+
+
+  const logoutArrow = document.getElementById("logoutArrow");
+
+    // ✅ Logout on click
+    logoutArrow.addEventListener("click", () => {
+      localStorage.removeItem("userToken");
+      alert("You have been logged out!");
+      window.location.href = "index.html";
+    });
+
+</script>
+ 
+</body>
+</html>

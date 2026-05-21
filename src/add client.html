@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- intl-tel-input CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css" />
+</head>
+
+<body class=" bg-gray-100">
+
+  <div class="flex h-screen">
+    <!-- side bar -->
+
+    <aside class="w-[300px] bg-[#2d3e50] text-white flex flex-col justify-between h-screen">
+      <!-- Top -->
+      <div>
+        <ul class="space-y-1 pt-8">
+          <!-- Active (Invoices page) -->
+          <li>
+            <a href="index.html"
+              class="flex items-center gap-3 px-6 py-1 text-white hover:text-blue-500 hover:border-blue-500 border-l-4 border-transparent transition">
+              <i class="fas fa-file-invoice"></i> Invoices
+            </a>
+          </li>
+
+          <!-- Normal -->
+          <li>
+            <a href="clients.html"
+              class="flex items-center gap-3 px-6 py-2  text-blue-500 font-medium border-l-4 border-blue-500">
+              <i class="fas fa-users"></i> Clients
+            </a>
+          </li>
+
+          <li>
+            <a href="settings.html"
+              class="flex items-center gap-3 px-6 py-3 text-white hover:text-blue-500 hover:border-blue-500 border-l-4 border-transparent transition">
+              <i class="fas fa-cog"></i> My settings
+            </a>
+          </li>
+
+          <!-- Divider -->
+          <div class="h-px bg-gray-500 mx-6 my-2"></div>
+
+          <li>
+            <a href="payments.html"
+              class="flex items-center gap-3 px-6 py-3 text-white hover:text-blue-500 hover:border-blue-500 border-l-4 border-transparent transition">
+              <i class="fas fa-credit-card"></i> International payments
+            </a>
+          </li>
+
+          <li>
+            <a href="contact.html"
+              class="flex items-center gap-3 px-6 py-1 text-white hover:text-blue-500 hover:border-blue-500 border-l-4 border-transparent transition">
+              <i class="fas fa-envelope"></i> Contact us
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Profile Section -->
+      <div class="px-6 py-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-blue-500 text-white flex items-center justify-center rounded-full font-bold">
+            Z
+          </div>
+          <span class="text-sm font-medium">zainabtechnologies</span>
+          <i class="fas fa-sign-out-alt ml-auto cursor-pointer text-gray-400 hover:text-blue-500"></i>
+        </div>
+      </div>
+    </aside>
+
+
+    <!-- Wrapper -->
+    <main class="flex-1 p-6 bg-gray-100 overflow-y-auto">
+
+      <!-- Page Heading (White box se bahar) -->
+      <h1 class="text-2xl font-bold text-gray-800 mb-6">New Client</h1>
+
+      <!-- White Shadow Card -->
+      <div class="bg-white shadow-lg rounded-lg p-6">
+
+        <!-- Invoice Logo Section -->
+        <div class="mb-8">
+          <h2 class="text-sm font-semibold text-gray-500">Client Logo</h2>
+
+          <!-- Logo Upload --> <label for="logoInput"
+            class="cursor-pointer border-2 border-dashed border-gray-300 rounded-md flex items-left pt-2 w-full max-w-xs h-10 px-5 text-black text-sm relative mt-2 mb-5">
+            <span id="uploadText" class="truncate"><i class="fas fa-image"></i> Choose logo or drop it here</span>
+            <input id="logoInput" type="file" accept="image/*" class="hidden">
+            <div id="logoPreview" class="ml-2"></div>
+          </label>
+          <!-- Form Content -->
+          <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <!-- I am + Sender Name -->
+            <div class="flex flex-col space-y-2 md:col-span-2">
+              <div class="flex items-center justify-between">
+                <div>
+                  <label class="block text-gray-500 text-sm mb-1">Company name <span
+                      class="text-red-500">*</span></label>
+                  <input type="text"
+                    class="w-full border border-gray-300 rounded-md px-[120px] py-2 focus:border-blue-500 outline-none">
+                </div>
+                <div class="w-1/2 relative">
+                  <label class="block text-gray-500 text-sm mb-1">Country</label>
+                  <div class="relative">
+                    <input id="countryInput" type="text" placeholder="Select Country"
+                      class="w-full border border-gray-300 rounded-md px-3 py-2 pr-8 cursor-pointer transition-all duration-300 outline-none"
+                      readonly>
+
+                    <!-- Arrow -->
+                    <svg id="countryArrow"
+                      class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 transition-all duration-300 pointer-events-none"
+                      fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+
+                    <!-- Dropdown -->
+                    <div id="countryDropdown"
+                      class="absolute left-0 top-full mt-1 w-full bg-white border border-gray-300 rounded-md shadow-lg max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-in-out z-50">
+                      <div class="p-2 border-b border-gray-200">
+                        <input id="countrySearch" type="text" placeholder="Search..."
+                          class="w-full border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none">
+                      </div>
+                      <ul id="countryList" class="max-h-48 overflow-y-auto text-sm"></ul>
+                      <p id="noCountry" class="hidden text-center text-gray-500 text-sm py-2">No result found</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Address + Other Details -->
+
+            <div>
+              <label class="block mb-1 text-sm text-gray-500">First name</label>
+              <input type="text"
+                class="w-full border border-gray-300 rounded px-3 py-2 focus:border-blue-500 outline-none">
+            </div>
+
+            <div>
+              <label class="block mb-1 text-sm text-gray-500">Last name</label>
+              <input type="text"
+                class="w-full border border-gray-300 rounded px-3 py-2 focus:border-blue-500 outline-none">
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label class="block text-gray-500 text-sm mb-1">
+                Email address <span class="text-red-500">*</span>
+              </label>
+              <input type="email" placeholder="Enter your email"
+                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-500 outline-none">
+            </div>
+
+            <!-- Phone number input -->
+            <div class="w-full">
+              <label class="block text-gray-500 text-sm mb-1">Phone number</label>
+              <input id="phone" type="tel" placeholder="+92 123 4567"
+                class="w-full border border-gray-300 rounded-md px-10 py-2 focus:border-blue-500 outline-none">
+            </div>
+
+
+            <div>
+              <label class="block text-gray-500 text-sm mb-1">Address line 1</label>
+              <input type="text"
+                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-500 outline-none">
+            </div>
+            <div>
+              <label class="block text-gray-500 text-sm mb-1">Address line 2</label>
+              <input type="text"
+                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-500 outline-none">
+            </div>
+            <div>
+              <label class="block text-gray-500 text-sm mb-1">Postal code</label>
+              <input type="text"
+                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-500 outline-none">
+            </div>
+            <div>
+              <label class="block text-gray-500 text-sm mb-1">City</label>
+              <input type="text"
+                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-500 outline-none">
+            </div>
+
+
+
+
+            <div>
+              <label class="block text-gray-500 text-sm mb-1">Web Site</label>
+              <input name="website" type="url"
+                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-500 outline-none">
+            </div>
+
+            <!-- Invoice Details + Bank Account (side by side) -->
+            <div class="relative w-full">
+              <label class="block text-gray-500 text-sm mb-1"> Invoice currency</label>
+              <div class="relative">
+                <input id="currencyInput" type="text" placeholder="Select Currency"
+                  class="w-full border border-gray-300 rounded-md px-3 py-2 pr-8 cursor-pointer transition-all duration-300 outline-none"
+                  readonly>
+
+                <!-- Arrow -->
+                <svg id="currencyArrow"
+                  class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 transition-all duration-300 pointer-events-none"
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+
+                <!-- Dropdown (opens upward) -->
+                <div id="currencyDropdown"
+                  class="absolute left-0 bottom-full mb-1 w-full bg-white border border-gray-300 rounded-md shadow-lg max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-in-out z-50">
+                  <div class="p-2 border-b border-gray-200">
+                    <input id="currencySearch" type="text" placeholder="Search..."
+                      class="w-full border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none">
+                  </div>
+                  <ul id="currencyList" class="max-h-48 overflow-y-auto text-sm"></ul>
+                  <p id="noCurrency" class="hidden text-center text-gray-500 text-sm py-2">No result found</p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="md:col-span-2">
+              <label class="block text-gray-500 text-sm mb-1">Additional info</label>
+              <textarea name="bank"
+                class="w-full border border-gray-300 rounded-md px-3 py-2 h-20 focus:border-blue-500 outline-none"></textarea>
+            </div>
+          </form>
+
+          <!-- Buttons -->
+          <div class="flex justify-start items-center mt-6 gap-3">
+            <a href="./clients.html" id="cancelBtn" class="px-4 py-2 border rounded-lg hover:bg-gray-100">Cancel</a>
+            <button id="saveBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg"><i
+                class="fa-solid fa-floppy-disk"></i> Save</button>
+          </div>
+        </div>
+
+
+
+        <!-- Footer (white box se bahar) -->
+        <footer class="text-center text-sm text-gray-600 mt-6">
+          <p>© Copyright 2025, All Rights Reserved &nbsp; &nbsp;
+            <a href="#">Terms & Conditions</a> &nbsp; &nbsp;
+            <a href="#">Privacy Policy</a>
+          </p>
+        </footer>
+    </main>
+
+
+
+    <!-- intl-tel-input JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+    <script>
+
+      const logoInput = document.getElementById("logoInput");
+      const logoPreview = document.getElementById("logoPreview");
+      const uploadText = document.getElementById("uploadText");
+      const labelBox = logoInput.closest("label");
+
+      logoInput.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            // Box expand ho jaye
+            labelBox.classList.remove("h-10");
+            labelBox.classList.add("h-auto", "py-3", "flex-col");
+
+            // "Choose a logo" text hide karo
+            uploadText.style.display = "none";
+
+            // Logo + Trash icon dikhado
+            logoPreview.innerHTML = `
+          <div class="relative">
+            <img src="${event.target.result}" class="h-20 object-contain mx-auto rounded">
+            
+            <!-- Trash Delete Button -->
+            <button type="button" id="removeLogo" 
+              class="absolute -top-2 -right-2 bg-red-500 text-white border border-white shadow-md 
+                     rounded-full w-7 h-7 flex items-center justify-center hover:bg-red-600">
+              🗑️
+            </button>
+          </div>
+        `;
+
+            // Delete functionality
+            document.getElementById("removeLogo").addEventListener("click", (event) => {
+              event.preventDefault(); // prevent file input trigger
+              logoInput.value = ""; // reset input
+              logoPreview.innerHTML = "";
+              uploadText.style.display = "inline"; // text wapas show
+              labelBox.classList.remove("h-auto", "py-3", "flex-col");
+              labelBox.classList.add("h-10"); // original size wapas
+            });
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+      const phoneInput = document.getElementById("phone");
+      const iti = window.intlTelInput(phoneInput, {
+        initialCountry: "pk",
+        preferredCountries: ["pk", "us", "in", "gb"],
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
+      });
+
+      const countries = [
+        "Pakistan", "India", "United States", "United Kingdom", "Canada", "Australia",
+        "Germany", "France", "Italy", "Spain", "China", "Japan", "Saudi Arabia",
+        "United Arab Emirates", "Bangladesh", "Nepal", "Sri Lanka", "South Africa"
+      ];
+
+      const countryInput = document.getElementById("countryInput");
+      const countryDropdown = document.getElementById("countryDropdown");
+      const countryList = document.getElementById("countryList");
+      const countrySearch = document.getElementById("countrySearch");
+      const noCountry = document.getElementById("noCountry");
+      const arrow = document.getElementById("countryArrow");
+
+      function renderCountries(list) {
+        countryList.innerHTML = "";
+        list.forEach(country => {
+          const li = document.createElement("li");
+          li.textContent = country;
+          li.className = "px-3 py-1 hover:bg-gray-100 cursor-pointer";
+          li.onclick = () => {
+            countryInput.value = country;
+            closeDropdown();
+          };
+          countryList.appendChild(li);
+        });
+      }
+      renderCountries(countries);
+
+      function openDropdown() {
+        countryDropdown.classList.remove("opacity-0", "max-h-0");
+        countryDropdown.classList.add("opacity-100", "max-h-60");
+        // Blue border + arrow
+        countryInput.classList.add("!border-blue-500");
+        arrow.classList.add("rotate-180", "text-blue-500");
+      }
+
+      function closeDropdown() {
+        countryDropdown.classList.add("opacity-0", "max-h-0");
+        countryDropdown.classList.remove("opacity-100", "max-h-60");
+        // Revert to gray
+        countryInput.classList.remove("!border-blue-500");
+        arrow.classList.remove("rotate-180", "text-blue-500");
+      }
+
+      // Toggle dropdown
+      countryInput.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = countryDropdown.classList.contains("opacity-100");
+        if (isOpen) closeDropdown();
+        else {
+          openDropdown();
+          countrySearch.value = "";
+          renderCountries(countries);
+          setTimeout(() => countrySearch.focus(), 100);
+        }
+      });
+
+      // Search
+      countrySearch.addEventListener("input", () => {
+        const filtered = countries.filter(c =>
+          c.toLowerCase().includes(countrySearch.value.toLowerCase())
+        );
+        if (filtered.length) {
+          renderCountries(filtered);
+          noCountry.classList.add("hidden");
+        } else {
+          countryList.innerHTML = "";
+          noCountry.classList.remove("hidden");
+        }
+      });
+
+      // Click outside closes dropdown
+      document.addEventListener("click", (e) => {
+        if (!countryDropdown.contains(e.target) && e.target !== countryInput) {
+          closeDropdown();
+        }
+      });
+
+
+
+
+      const currencies = [
+        "United States Dollar (USD)",
+        "Euro (EUR)",
+        "Pakistani Rupee (PKR)",
+        "British Pound (GBP)",
+        "Canadian Dollar (CAD)",
+        "Australian Dollar (AUD)",
+        "Japanese Yen (JPY)",
+        "Chinese Yuan (CNY)",
+        "Saudi Riyal (SAR)",
+        "UAE Dirham (AED)"
+      ];
+
+      const currencyInput = document.getElementById("currencyInput");
+      const currencyDropdown = document.getElementById("currencyDropdown");
+      const currencyList = document.getElementById("currencyList");
+      const currencySearch = document.getElementById("currencySearch");
+      const noCurrency = document.getElementById("noCurrency");
+      const currencyArrow = document.getElementById("currencyArrow");
+
+      function renderCurrencies(list) {
+        currencyList.innerHTML = "";
+        list.forEach(currency => {
+          const li = document.createElement("li");
+          li.textContent = currency;
+          li.className = "px-3 py-1 hover:bg-gray-100 cursor-pointer";
+          li.onclick = () => {
+            currencyInput.value = currency;
+            closeCurrencyDropdown();
+          };
+          currencyList.appendChild(li);
+        });
+      }
+      renderCurrencies(currencies);
+
+      function openCurrencyDropdown() {
+        currencyDropdown.classList.remove("opacity-0", "max-h-0");
+        currencyDropdown.classList.add("opacity-100", "max-h-60");
+        // Blue border + arrow
+        currencyInput.classList.add("!border-blue-500");
+        currencyArrow.classList.add("rotate-180", "text-blue-500");
+      }
+
+      function closeCurrencyDropdown() {
+        currencyDropdown.classList.add("opacity-0", "max-h-0");
+        currencyDropdown.classList.remove("opacity-100", "max-h-60");
+        // Reset styles
+        currencyInput.classList.remove("!border-blue-500");
+        currencyArrow.classList.remove("rotate-180", "text-blue-500");
+      }
+
+      // Toggle dropdown
+      currencyInput.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = currencyDropdown.classList.contains("opacity-100");
+        if (isOpen) closeCurrencyDropdown();
+        else {
+          openCurrencyDropdown();
+          currencySearch.value = "";
+          renderCurrencies(currencies);
+          setTimeout(() => currencySearch.focus(), 100);
+        }
+      });
+
+      // Search functionality
+      currencySearch.addEventListener("input", () => {
+        const filtered = currencies.filter(c =>
+          c.toLowerCase().includes(currencySearch.value.toLowerCase())
+        );
+        if (filtered.length) {
+          renderCurrencies(filtered);
+          noCurrency.classList.add("hidden");
+        } else {
+          currencyList.innerHTML = "";
+          noCurrency.classList.remove("hidden");
+        }
+      });
+
+      // Close on outside click
+      document.addEventListener("click", (e) => {
+        if (!currencyDropdown.contains(e.target) && e.target !== currencyInput) {
+          closeCurrencyDropdown();
+        }
+      });
+
+    </script>
+
+    <!-- Force full width -->
+    <style>
+      .iti {
+        width: 100% !important;
+      }
+
+      .iti__flag-container {
+        border-right: 1px solid #ccc;
+      }
+    </style>
+</body>
+
+</html>
